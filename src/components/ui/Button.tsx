@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import type React from "react";
+import type { ReactNode } from "react";
 
 type Variant = "primary" | "ghost" | "subtle";
 
@@ -12,11 +13,14 @@ const variants: Record<Variant, string> = {
   subtle: "bg-charcoal-soft/80 text-ivory hover:bg-charcoal-soft",
 };
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type ButtonProps = Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  "onDrag" | "onDragStart" | "onDragEnd"
+> & {
   children: ReactNode;
   variant?: Variant;
   icon?: ReactNode;
-}
+};
 
 export function Button({ children, variant = "primary", icon, ...props }: ButtonProps) {
   return (

@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
+import type React from "react";
 
-interface AnimatedCheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+type AnimatedCheckboxProps = Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "onDrag" | "onDragStart" | "onDragEnd"
+> & {
   label?: string;
-}
+};
 
 export function AnimatedCheckbox({ label, ...props }: AnimatedCheckboxProps) {
   return (

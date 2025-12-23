@@ -15,7 +15,12 @@ const variants: Record<Variant, string> = {
 
 type ButtonProps = Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
-  "onDrag" | "onDragStart" | "onDragEnd"
+  | "onDrag"
+  | "onDragStart"
+  | "onDragEnd"
+  | "onAnimationStart"
+  | "onAnimationEnd"
+  | "onAnimationIteration"
 > & {
   children: ReactNode;
   variant?: Variant;

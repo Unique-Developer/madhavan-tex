@@ -1,6 +1,7 @@
-import { FormEvent, useState, useEffect } from 'react';
+import type { FormEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Timestamp } from 'firebase/firestore';
 import {
   addColorVariant,
@@ -23,7 +24,6 @@ type AddVariantModalProps = {
 
 export function AddVariantModal({
   productId,
-  product,
   editingVariant,
   onClose,
   onSuccess,
@@ -36,7 +36,6 @@ export function AddVariantModal({
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const reduce = useReducedMotion();
 
   // Pre-fill form if editing
   useEffect(() => {

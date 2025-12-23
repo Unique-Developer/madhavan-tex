@@ -55,6 +55,7 @@ export function ProductDetailPage() {
       setLoading(false);
       return;
     }
+    const pid = productId as string;
 
     async function loadLookups(categoryId?: string, subcategoryId?: string) {
       try {
@@ -79,7 +80,7 @@ export function ProductDetailPage() {
 
     async function loadProduct() {
       try {
-        const prod = await getProductById(productId);
+        const prod = await getProductById(pid);
         if (!prod) {
           setError('Product not found');
           setLoading(false);
@@ -134,8 +135,9 @@ export function ProductDetailPage() {
   // Refresh product after variant changes
   async function refreshProduct() {
     if (!productId) return;
+    const pid = productId as string;
     try {
-        const prod = await getProductById(productId);
+        const prod = await getProductById(pid);
         if (prod) {
           setProduct({
             ...prod,

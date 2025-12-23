@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { FormEvent, useState, useEffect } from 'react';
+import type { FormEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Timestamp } from 'firebase/firestore';
 import { useAuth } from '../context/AuthContext';
 import {
   getCategories,
@@ -11,6 +11,7 @@ import {
   type Category,
   type Subcategory,
   type FabricType,
+  type Product,
 } from '../lib/firestore';
 import { uploadProductMainImage } from '../lib/storage';
 import { Card } from '../components/ui/Card';

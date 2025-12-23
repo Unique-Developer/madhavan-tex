@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getDownloadURL, ref } from 'firebase/storage';
@@ -400,7 +400,9 @@ export function ProductsListPage() {
         {loading ? (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 6 }).map((_, i) => (
-              <Card key={i} hover={false} className="h-64 animate-pulse bg-slate-100" />
+              <Card key={i} hover={false} className="h-64 animate-pulse bg-slate-100">
+                <div className="h-full w-full" />
+              </Card>
             ))}
           </div>
         ) : filteredProducts.length === 0 ? (
